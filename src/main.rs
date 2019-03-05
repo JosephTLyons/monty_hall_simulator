@@ -1,7 +1,6 @@
 extern crate rand;
 
 use rand::Rng;
-use std::io;
 
 fn main() {
     let mut wins = 0;
