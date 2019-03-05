@@ -6,6 +6,7 @@ use std::io;
 fn main() {
     let mut wins = 0;
     let total_runs = 100;
+    
     for _x in 0..total_runs {
         if monty_hall (true) {
             wins += 1;
