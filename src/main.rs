@@ -3,20 +3,23 @@ extern crate rand;
 use rand::Rng;
 
 fn main() {
-    let mut wins = 0;
-    let total_runs = 100;
+    monty_hall_driver(10000);
+}
 
-    for x in 0..total_runs {
+fn monty_hall_driver(run_count: u32) {
+    let mut wins: u32 = 0;
+
+    for x in 0..run_count {
         println!("Run :{}", x + 1);
 
-        if monty_hall (true) {
+        if monty_hall(true) {
             wins += 1;
         }
 
         println!();
     }
 
-    println!("You won: {}/{}", wins, total_runs);
+    println!("You won: {}/{}", wins, run_count);
 }
 
 fn monty_hall(swap: bool) -> bool {
