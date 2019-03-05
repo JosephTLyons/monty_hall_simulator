@@ -6,11 +6,15 @@ use std::io;
 fn main() {
     let mut wins = 0;
     let total_runs = 100;
-    
-    for _x in 0..total_runs {
+
+    for x in 0..total_runs {
+        println!("Run :{}", x + 1);
+
         if monty_hall (true) {
             wins += 1;
         }
+
+        println!();
     }
 
     println!("You won: {}/{}", wins, total_runs);
@@ -20,6 +24,7 @@ fn monty_hall(swap: bool) -> bool {
     let mut doors: Vec<bool> = vec![false; 3];
     let correct_door: usize = rand::thread_rng().gen_range (0, 3);
     doors[correct_door] = true;
+    println!("Correct door is: {}", correct_door);
 
     let mut door_chosen: usize = rand::thread_rng().gen_range (0, 3);
     println!("Door chosen: {}", door_chosen);
