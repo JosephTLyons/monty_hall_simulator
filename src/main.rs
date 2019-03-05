@@ -23,36 +23,24 @@ fn monty_hall(swap: bool) -> bool {
     let mut door_chosen: usize = rand::thread_rng().gen_range (0, 3);
     println!("Door chosen: {}", door_chosen);
 
-    if guess_is_in_range(door_chosen, doors.len()) {
-        let wrong_door_revealed: usize = get_index_of_first_wrong_door(&doors, door_chosen);
+    let wrong_door_revealed: usize = get_index_of_first_wrong_door(&doors, door_chosen);
+    println!("Revealed wrong door: {}", wrong_door_revealed);
 
-        if swap {
-            println!("You've swapped doors");
-            // Add up indices
-            let remaining_option = (1 + 2) - (door_chosen + wrong_door_revealed);
-            door_chosen = remaining_option;
-        }
+    if swap {
+        let remaining_door = (1 + 2) - (door_chosen + wrong_door_revealed);
+        println!("You've swapped from {} to {}", door_chosen, remaining_door);
+        door_chosen = remaining_door;
+    }
 
-        if guess_is_correct(&doors, door_chosen) {
-            game_won();
-            return true;
-        }
-
-        else {
-            game_lost();
-            return false;
-        }
+    if guess_is_correct(&doors, door_chosen) {
+        game_won();
+        true
     }
 
     else {
-        // Out of bounds, deal with this later
+        game_lost();
+        false
     }
-
-    false
-}
-
-fn guess_is_in_range(guess: usize, size: usize) -> bool {
-    guess <= size
 }
 
 fn guess_is_correct(doors: &[bool], guess: usize) -> bool {
