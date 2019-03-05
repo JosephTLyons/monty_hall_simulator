@@ -67,5 +67,5 @@ fn get_index_of_first_wrong_door(doors: &[bool], guess: usize) -> usize {
         }
     }
 
-    0 // Default return value, should never be used though
+    0 // Default return value, should never be reached though
 }
