@@ -40,27 +40,15 @@ fn monty_hall(swap: bool) -> bool {
         door_chosen = remaining_door;
     }
 
-    if guess_is_correct(&doors, door_chosen) {
-        game_won();
+    if doors[door_chosen] {
+        println!("You won the game!");
         true
     }
 
     else {
-        game_lost();
+        println!("You lost the game!");
         false
     }
-}
-
-fn guess_is_correct(doors: &[bool], guess: usize) -> bool {
-    doors[guess]
-}
-
-fn game_won() {
-    println!("You won the game!");
-}
-
-fn game_lost() {
-    println!("You lost the game!");
 }
 
 fn get_index_of_first_wrong_door(doors: &[bool], guess: usize) -> usize {
