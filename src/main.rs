@@ -31,7 +31,7 @@ fn monty_hall(swap: bool) -> bool {
     let mut doors: Vec<bool> = vec![false; 3];
     let correct_door: usize = rand::thread_rng().gen_range(0, 3);
     doors[correct_door] = true;
-    println!("Correct door is: {}", correct_door);
+    println!("Correct door: {}", correct_door);
 
     let mut door_chosen: usize = rand::thread_rng().gen_range(0, 3);
     println!("Door chosen: {}", door_chosen);
