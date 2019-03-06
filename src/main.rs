@@ -10,7 +10,7 @@ fn monty_hall_driver(run_count: u32) {
     let mut wins: u32 = 0;
 
     for x in 0..run_count {
-        println!("Run :{}", x + 1);
+        println!("Run: {}", x + 1);
 
         if monty_hall(true) {
             wins += 1;
