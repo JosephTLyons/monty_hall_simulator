@@ -45,6 +45,10 @@ fn monty_hall(swap: bool) -> bool {
         door_chosen = remaining_door;
     }
 
+    else {
+        println!("You've kept door {}", door_chosen);
+    }
+
     if doors[door_chosen] {
         println!("You won!");
         true
