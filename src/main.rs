@@ -3,7 +3,7 @@ extern crate rand;
 use rand::Rng;
 
 fn main() {
-    monty_hall_driver(100_000);
+    monty_hall_driver(1000, true);
 }
 
 fn monty_hall_driver(run_count: u32, swap: bool) {
