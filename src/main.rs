@@ -6,13 +6,13 @@ fn main() {
     monty_hall_driver(100_000);
 }
 
-fn monty_hall_driver(run_count: u32) {
+fn monty_hall_driver(run_count: u32, swap: bool) {
     let mut wins: u32 = 0;
 
     for x in 0..run_count {
         println!("Run: {}", x + 1);
 
-        if monty_hall(true) {
+        if monty_hall(swap) {
             wins += 1;
         }
 
