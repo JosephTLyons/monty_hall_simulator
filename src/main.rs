@@ -28,7 +28,7 @@ fn monty_hall_driver(run_count: u32, should_swap: bool) {
 }
 
 fn monty_hall(should_swap: bool) -> bool {
-    let mut doors: Vec<bool> = vec![false; 3];
+    let mut doors: [bool; 3] = [false; 3];
     let correct_door: usize = rand::thread_rng().gen_range(0, 3);
     doors[correct_door] = true;
     println!("Correct door: {}", correct_door);
