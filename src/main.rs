@@ -60,7 +60,7 @@ fn monty_hall(should_swap: bool) -> bool {
 
 fn get_index_of_first_wrong_door(doors: &[bool], guess: usize) -> usize {
     for (i, item) in doors.iter().enumerate() {
-        if i != guess && *item == false {
+        if i != guess && !*item {
             return i;
         }
     }
