@@ -43,7 +43,9 @@ fn monty_hall(should_swap: bool) -> bool {
         let remaining_door = NUMBER_OF_DOORS - (door_chosen + wrong_door_revealed);
         println!("You've swapped from {} to {}", door_chosen, remaining_door);
         door_chosen = remaining_door;
-    } else {
+    }
+
+    else {
         println!("You've kept door {}", door_chosen);
     }
 
