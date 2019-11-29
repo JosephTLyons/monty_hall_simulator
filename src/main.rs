@@ -36,7 +36,8 @@ fn monty_hall(should_swap: bool) -> bool {
     let mut door_chosen: usize = rand::thread_rng().gen_range(0, NUMBER_OF_DOORS);
     println!("Door chosen: {}", door_chosen);
 
-    let wrong_door_revealed: usize = get_index_of_first_wrong_door(&doors, door_chosen);
+    let wrong_door_revealed: usize = get_index_of_first_wrong_door(&doors, door_chosen)
+        .expect("A wrong door isn't possible with the current state.");
     println!("Revealed wrong door: {}", wrong_door_revealed);
 
     if should_swap {
@@ -58,12 +59,12 @@ fn monty_hall(should_swap: bool) -> bool {
     false
 }
 
-fn get_index_of_first_wrong_door(doors: &[bool], guess: usize) -> usize {
+fn get_index_of_first_wrong_door(doors: &[bool], guess: usize) -> Option<usize> {
     for (i, item) in doors.iter().enumerate() {
         if i != guess && !*item {
-            return i;
+            return Some(i);
         }
     }
 
-    0 // Default return value, should never be reached though
+    None
 }
